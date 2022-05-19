@@ -1,0 +1,155 @@
+﻿
+/*  ---   Estilos del Site glFactura.css     NO inluye  Clases */
+
+
+
+
+#frmClientes{
+    width:1220px;
+    /*width:auto;*/
+    background-color:antiquewhite;  
+}    
+
+    #frmClientes .modal-header {        
+        height:52px;         
+        /*background-color:bisque;        
+        background: tomato;*/        
+    }
+
+
+
+#tbClientes {            
+    width:1500px; 
+}
+
+    #tbClientes td {            
+        border: solid 2px gainsboro;           
+        font-size: 12px;    
+        height:24px;
+        padding-left: 2px;    
+    }
+
+
+#lisClientes {
+    /*width:70%;*/
+    overflow:auto; 
+    overflow-y:scroll; 
+    height:740px;     
+}
+
+#frmEdCliente {
+    overflow:auto;
+    overflow-y:scroll;     
+    height:auto;        
+}
+    #frmEdCliente .panel-body{
+        padding:2px;
+    }
+
+
+    #frmEdCliente .panel-heading, #frmEdCliente .panel-body {
+        width:770px;        
+    }
+
+    #frmEdCliente input[type=text], #frmEdCliente select, #frmEdCliente textarea {    
+        padding:3px;        
+        margin:4px;
+        font-size:12px;
+        height:auto;        
+    }
+    
+    #frmEdCliente span {
+        padding-left:3px;
+        padding-right:3px;
+        font-size:12px;    
+    }
+
+    #frmEdCliente label {
+        font-size:14px;   
+        font-weight:bold;
+    }
+
+#CapaOrdenCol{
+     width:250px; /*sin uso, Se define dinamicamente en scrip */
+     
+ }
+    #CapaOrdenCol .modal-header{
+        height:30px;
+        padding:5px;
+        font-size:12px; 
+        background-color:beige;
+    }
+
+
+
+
+
+#gvListaFacturas td {        
+    font-size: 12px;    
+    height:24px;
+    padding-left: 5px;            
+    padding-right: 5px;    
+}
+
+
+
+
+/* Nuevo menu vertical izq. con iconos autexpandible (26/11/18)*/
+#menuVIcon {
+    width:50px; 
+    height:400px;                        
+    
+}
+
+#menuVIcon:hover {
+    width:180px;             
+}
+
+#menuVIcon div {            
+    /*background-color:tomato;*/
+    height:40px;
+    overflow:hidden;                                    
+    text-align:center;
+    border: solid 1px gray;           
+    padding-top:13px;
+    padding-bottom:13px;
+    
+}
+
+#menuVIcon div label{                        
+    padding-left:10px;            
+}
+
+    #menuVIcon div:hover {
+        background-color:lightgray;                
+    }
+
+
+
+  
+/* etiquetas en formulario */
+#frmFactura label {
+    margin:3px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+#rmFactura .form-control {                
+    padding-left:5px;
+    /* padding:4px 2px 2px 4px;  right bottom left*/
+    /*height:25px;*/
+    /*padding:3px;
+    font-size:12px;*/
+        
+}
+
+#pnHojaRuta label, #pnHojaRuta span {
+    margin:3px;
+    font-size:12px;
+}
+
+
+
+
+
+

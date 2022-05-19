@@ -1,0 +1,10 @@
+tipreg;sociedad;tipo docum;fecha doc;fecha cont.;moneda;referencia;texto cabecera;libre1;clave contab.;CUENTA;IND. CME;SOC.  GL;DIVISION;CECO;IMPORTE;ASIGNACION;TEXTO POS.;XREF1;XREF2;XREF3;FECH. BASE VENCIM.; 
+ 1;VEC;CG;30012021;30012021;EUR;100772101;CAJAS REGALO PLAN B 01/21;DISTRI;;;;;;;;;;;;;; 
+ 2;;;;;;;;;D;;;;;1416;0;;CAJAS REGALO PLAN B - E16;10077012021;;;; 
+ 2;;;;;;;;;H;;;;;;0;;Total CAJAS REGALO PLAN B- mes 01;100772101;;;; 
+ 1;VEC;CG;30012021;30012021;EUR;100772101;PEPEPHONE 01/21;DISTRI;;;;;;;;;;;;;; 
+ 2;;;;;;;;;D;;;;;1415;0;;PEPEPHONE - E15;10077012021;;;; 
+ 2;;;;;;;;;D;;;;;1422;0;;PEPEPHONE - E22;10077012021;;;; 
+ 2;;;;;;;;;D;;;;;2166;0;;PEPEPHONE - L66;10077012021;;;; 
+ 2;;;;;;;;;H;;;;;;0;;Total PEPEPHONE- mes 01;100772101;;;; 
+ 

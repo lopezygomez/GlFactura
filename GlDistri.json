@@ -1,0 +1,32 @@
+﻿{
+  "CabeceraGldistriSAP": {
+    "tipreg": "1",
+    "sociedad": "VHA",
+    "tipo docum": "CG",
+    "fecha doc": "30042018",
+    "fecha cont.": "30042018",
+    "moneda": "EUR",
+    "referencia": "100771804",
+    "texto cabecera": "MATERIAL BOUTIQUE  04/18 ",
+    "libre1": "DISTRI",
+    "clave contab.": "D",
+    "CUENTA": "6270015",
+    "IND. CME": "",
+    "SOC.  GL": "",
+    "DIVISION": "",
+    "CECO": "'247",
+    "IMPORTE": 1237.80,
+    "ASIGNACION": null,
+    "TEXTO POS.": "BOUTIQUE HALCON - 247",
+    "XREF1": "100771804",
+    "XREF2": "",
+    "XREF3": "",
+    "FECH. BASE VENCIM.": ""
+
+  },
+
+  "campo1": "Es es el Campo1",
+  "campo2": { "v12": "199" }
+
+
+}

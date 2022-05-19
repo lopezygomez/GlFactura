@@ -1,0 +1,119 @@
+﻿
+/* 
+    Estilos para sbarc Colapsable "sbarc"
+
+*/
+    nav.sbarc, .main {
+        -webkit-transition: margin 100ms ease-out;
+        -moz-transition: margin 100ms ease-out;
+        -o-transition: margin 100ms ease-out;
+        transition: margin 100ms ease-out;
+    }
+
+    /*.main {      padding: 10px 10px 0 10px;       }*/
+
+    @media (min-width: 765px) {
+
+        /*.main {
+            position: absolute;
+            width: calc(100% - 40px);
+            margin-left: 40px;
+            float: right;
+        }*/
+
+        nav.sbarc:hover + .main {
+            margin-left: 200px;
+        }
+
+        nav.sbarc.navbar.sbarc > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+            margin-left: 0px;
+        }
+
+        nav.sbarc .navbar-brand, nav.sbarc .navbar-header {
+            text-align: center;
+            width: 100%;
+            margin-left: 0px;
+        }
+
+        nav.sbarc a {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        nav.sbarc .navbar-nav > li:first-child {
+            border-top: 1px e5e5e5 solid;
+        }
+
+        nav.sbarc .navbar-nav > li {
+            border-bottom: 1px #e5e5e5 solid;
+        }
+
+        nav.sbarc .navbar-nav .open .dropdown-menu {
+            position: static;
+            float: none;
+            width: auto;
+            margin-top: 0;
+            background-color: transparent;
+            border: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        nav.sbarc .navbar-collapse, nav.sbarc .container-fluid {
+            padding: 0 0px 0 0px;
+        }
+
+        .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+            color: #777;
+        }
+
+        nav.sbarc {
+            width: 200px;
+            height: 100%;
+            margin-left: -150px;
+            float: left;
+            margin-bottom: 0px;
+        }
+
+            nav.sbarc li {
+                width: 100%;
+            }
+
+            nav.sbarc:hover {
+                margin-left: 0px;
+            }
+
+        .forAnimate {
+            opacity: 0;
+        }
+    }
+
+    @media (min-width: 1330px) {
+
+        .main {
+            width: calc(100% - 200px);
+            margin-left: 200px;
+        }
+
+        nav.sbarc {
+            margin-left: 0px;
+            float: left;
+        }
+
+            nav.sbarc .forAnimate {
+                opacity: 1;
+            }
+    }
+
+    nav.sbarc .navbar-nav .open .dropdown-menu > li > a:hover, nav.sbarc .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #CCC;
+        background-color: transparent;
+    }
+
+    nav:hover .forAnimate {
+        opacity: 1;
+    }
+
+    section {
+        padding-left: 15px;
+    }

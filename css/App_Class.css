@@ -1,0 +1,395 @@
+﻿
+/*  ----     Estilos del Site glFactura_Class.css     SOLO Clases  */
+
+/*    Incluidas 16/10/20 */
+
+.cabecera {      
+    /*height:180px;*/  
+            
+    /*Flex*/
+    display: flex;    
+    /* alineacion vertical */      
+    flex-wrap: wrap;
+    align-content: center;                         
+}
+
+/* Select, imput, etc  de cabecera*/
+
+.cabecera .form-control {
+    height:30px;
+    font-size:14px;
+    padding:2px;                 
+}    
+
+
+
+.cabItem {          
+    padding: 4px;              
+    /* colores en oscuro/negativo       color:white;       background:#2c3e50;      */        
+    
+    /* alineacion vertical */      
+    display: flex;  
+    flex-wrap: wrap;
+    align-content: center;     
+    align-items:baseline;
+
+    /*Debug para verificar tamaño-- 
+     border:solid 1px red;  */   
+}
+    
+
+/* Items de la cabecera reverse */   
+.cabItemR {            
+    flex-direction: row-reverse;
+    padding-right:6px;   
+}
+
+.cabecera img {  width:120px;   }
+
+.cabecera label {   
+    font-size:14px;    
+    padding-right: 8px; 
+    }
+
+/*  FIN Elementos del Cabecera    ----------------*/
+
+
+/*Botones de minimizar maximizar */
+.BtnMaxMin {   
+    align-self:center;    
+    padding: 1px;
+    }
+
+    .BtnMaxMin i {   
+        padding: 5px;        
+        /*border: 1px solid black;*/        
+        /*margin:2px;*/    
+    }
+
+/* label con informacion */
+.labelInfo {
+    background-color:gainsboro;  
+    padding:5px;           
+    margin:1px;
+    /*border:solid 1px gray;*/    
+    border-radius:5px;
+}
+
+
+/*----------------*/
+
+
+
+
+.selCadena {
+    padding:3px;
+}
+
+    
+.flexP {
+    display: flex;        
+    /*background-color:cadetblue;*/
+}
+     
+    .flexP div {
+        margin:1px;    
+        /*background-color:azure;
+         padding:5px;  
+        flex: 1 ;*/                 
+    }
+
+
+
+/* Para fijar la Cabecera superior (th) de una tabla, requiere display: block; en la tabla tambien */
+.cabecera-fija {
+    display:block;
+    position:sticky;
+    top:0;        
+}
+
+.cabecera-fija th {  
+    font-size: 12px;    
+    /* padding:2px; desajusta cabeceras con detalles */
+    background-color:gainsboro;
+    text-align:center;                
+    border: 1px solid #858282;
+    height:40px;
+}
+
+
+/* paginador bootpag */
+.pagination {
+    padding:0px;
+    margin:0px;
+    font-size:14px;  
+    
+}
+
+  
+
+/* Resalta linea completa del grid*/
+.resaltaFila {
+    /*background-color:cadetblue !important;        */
+    background-color:cadetblue;    
+}
+
+
+/* campos no modificables ,solo lectura de formulario */
+.noMod {       
+    background-color:gainsboro;
+}
+
+
+
+
+/*Formato de columna ordenable*/
+.cabOrdenable {     
+        background-color:azure !important;                        
+        text-decoration:underline;
+    }
+
+    .cabOrdenable:hover {    
+        background-color:antiquewhite !important;
+    }
+
+    .cabOrdenable:before {
+         /* Incluye un icono
+        font-family: 'Glyphicons Halflings';
+        content: "\e094";
+        float: right;        */         
+    }
+
+
+ /* Formato de columna ordenable (ANT de GlFactura)
+.cabOrdenable {
+        color:brown;
+    }*/
+
+
+
+
+    
+/* Cabecera de las tablas para ordenacion (Antiguas. de GlFactura  */
+   
+.cabOrdenadaAsc:before {            
+    /* Incluye un icono */    
+    color:blue ;       
+    font-family: 'Glyphicons Halflings';      
+    content: "\e093";
+    float: right;               
+}
+
+    .cabOrdenadaDesc:before {            
+        /* Incluye un icono */    
+        color:brown;
+        font-family: 'Glyphicons Halflings';      
+        content: "\e094";
+        float: right;               
+    }
+
+    
+    .cabFiltrada:before {
+        /* Incluye icono "fas fa-filter" */
+        color:green;
+        font-family: "Font Awesome 5 Free";    
+        content: "\f0b0";
+        float: left;               
+    }
+
+      
+body {
+    padding-top:50px;
+    font-size: 14px;    
+    /*background-color:aquamarine;*/
+}
+            
+.navbar-header {
+    border:0px solid #000000;
+    padding: 1px 3px;
+}
+        
+/* Aumenta separación de iconos */
+.glyphicon, .fa  {
+    padding: 1px 3px 1px 1px;
+            
+}
+
+/* estrecha pies de formularios, usa borde superior */
+.modal-footer {
+    padding-top:2px;
+    padding-bottom:1px;
+    border-top:1px solid #CCCCCC;
+}
+
+/* Aumenta separación de etiquetas por la izqu. de los form-inline de bootstrap */
+.form-inline label {
+    padding: 1px 1px 1px 10px;
+}
+
+
+ /* para grupos de botones informativos --*/
+.btinfor button, .btinfor a {
+    font-size: 12px;
+}
+
+.form-control.fecha, .fecha  {
+    width: 85px; 
+    /*background-color:#cbdbc6;*/
+    padding: 4px 2px;                
+}
+        
+/*  Barra Vertical */
+.bVertical {
+    width:140px;
+    padding:2px;        
+}
+
+.bVertical label { 
+        font-size: 12px; 
+}
+/* separacion de botones    */
+.bVertical a { 
+    margin:4px;
+}
+ 
+  
+    
+
+/*Barra de iconos */
+.bs-iconos{
+    margin: 1px 10px;
+}
+    .bs-iconos a{
+        margin-top: 1px;
+        margin-right:8px;
+        font-size:14px;        
+    }
+
+
+.dvCollapseIzq .panel-heading{    
+    background-color:antiquewhite;
+    padding:4px;
+}
+.dvCollapseIzq .panel-title{
+    font-size:14px;    
+}
+
+.dvCollapseIzq .panel-body{
+    padding:3px;
+}
+
+
+
+/* cambio de color al modificar un  campo */
+
+
+
+.campoModif {
+    background-color: beige;
+    border: 3px solid brown;
+}
+
+
+.selCelda {
+    background-color:cadetblue;
+    border: 1px solid #858282; 
+    font-weight: bold;
+}
+
+.selFila{
+    background-color:beige;
+    }
+    
+.panelP { 
+    border: 1px solid #858282;
+    padding: 2px;    
+    /*font-size: 12px;*/
+    z-index: 4;
+}
+    .panelP .modal-header, .panelP .modal-footer {        
+        font-weight: bold;
+        padding: 2px;
+    }
+     
+    .panelP .modal-header {
+        height:60px;
+        background-color: lightgray;             
+    }
+    .panelP div { 
+        font-size: 14px;
+    } 
+
+
+
+/*checkbox de seleccion en el grid */
+.ckb{
+    /*  width: 15px;   height: 15px;*/    
+}
+
+.grid1 {  
+    /*padding: 1px 2px;*/
+    /*font-size: 26px;*/      }
+
+/* para cada fila del grid */
+.grid1 td {
+    /*padding: 5px 4px;*/
+    /*text-align:left;*/ 
+    height:15px;    
+    border: solid 1px gainsboro;        
+    font-size: 11px;          
+}
+
+
+
+
+.capa {
+        display: none;
+        border: 1px solid #858282;
+        padding: 0px;
+        position: absolute;
+        background-color: #d8e3eb;
+        font-size: 14px;
+        z-index: 10;
+    }
+    .capa .modal-header, .capa .modal-footer {
+        background-color: #f0f5f8;
+        font-weight: bold;
+    }
+    .capa .form-group {
+        border-top: solid 1px gray;
+        padding: 5px;
+    }
+
+.linContabilizada {
+    background-color: bisque;
+}
+.linSeleccionada{
+    background-color: beige;
+    
+    }
+
+
+/*Mensaje con gif modal de actualizacion */ 
+    .msgAct2 {
+        display:    none;
+        position:   fixed;
+        z-index:    1000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;        
+        background: rgba( 255, 255, 255, .8 ) url('../images/Loading.gif') 
+                    50% 50% no-repeat;
+    }         
+     body.loading .msgAct2 {    display: block;}
+    
+
+
+ /*Para que funcione autocomplete em form. modal */
+ ul.ui-autocomplete {
+    z-index: 1100;  
+}
+
+ 
+
+

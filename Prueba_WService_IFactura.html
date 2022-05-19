@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<!--ref: https://cdn.rawgit.com/nunof07/bootstrap-collapsible-sidebar/v0.1.0/left.html-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <title>Ejemplo Barra izquierda 3 (sidebar)</title>
+    <meta charset="utf-8" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />
+    
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  
+
+<style type="text/css" media="all">
+
+	/*html,body {
+		height: 100%;
+	}
+
+	.jumbotron {		margin-top: 30px;	}
+
+
+	*/
+
+
+	#content,	#sidebar {
+		min-height: 500px;
+	}
+	
+    #row-main {
+		overflow-x: hidden; /* necessary to hide collapsed sidebar */
+	}
+
+	#content {
+		background-color: lightyellow;
+					
+		transition: width 0.3s ease;
+	}
+	#content .btn-group {
+		margin-bottom: 10px;
+	}
+	.col-md-9 .width-12,
+	.col-md-12 .width-9 {
+		display: none; /* just hiding labels for demo purposes */
+	}
+	#sidebar {
+		background-color: lightgrey;					
+		transition: margin 0.3s ease;
+	}
+	.collapsed {
+		display: none; /* hide it for small displays */
+	}
+
+	@media (min-width: 992px) {
+		.collapsed {
+			display: block;
+			margin-left: -25%; /* same width as sidebar */
+		}
+	}
+	
+
+</style>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $(".toggle-sidebar").click(function () {
+            $("#sidebar").toggleClass("collapsed");
+            $("#content").toggleClass("col-md-12 col-md-9");
+
+            return false;
+        });
+        /*
+            Prueba para usar web service wsGlFactura.asmx desde al web             
+            Prueba en intranet Halcon. Creada carpeta de pruebas \\10.12.0.40\Ventas\GlTraFF  , borrar 
+            Requiere copiar en carpeta \\10.12.0.40\Ventas\bin\ la información del bin del aplicativo.
+            Ejemplo de llamada:
+                			http://10.12.0.40/GlTraFF/Prueba_WService_IFactura.html (ok, genera factura en \\10.12.0.40\Ventas\GlTraFF\facturas\)
+
+
+        */
+        $('#btPrueba').click(function (e) {
+	   //alert('btPrueba');
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=UTF-8",
+                async: false,
+                url: "wsGlFactura.asmx/ImprimeFactura",
+                data: '{idFactura: 14270' +     
+                    ', Ejercicio: 2017'+
+                '}',
+                dataType: "json",
+                success:
+                    function (data) { },
+                error: {
+                    function (request, status, error) { alert(JSON.parse(request.responseText).Message); }
+                },
+            });
+
+
+        });
+
+});
+
+
+</script>
+</head>
+
+<body>
+      <!--RESUMIDA-->
+    <div class="row" id="row-main">
+
+        <div class="col-md-3" id="sidebar">
+            <h3><code>#sidebar</code> <code>.col-md-3</code></h3>
+            <p>Has a negative left margin when collapsed.</p>
+        </div>
+        <div class="col-md-9" id="content">
+            <h3><code>#content</code> <code class="width-9">.col-md-9</code> <code class="width-12">.col-md-12</code></h3>
+            <div class="btn-group" role="group" aria-label="Controls">
+                <button type="button" class="btn btn-default toggle-sidebar">Toggle sidebar</button>
+            </div>
+            <p>Changes from <code>.col-md-9</code> to <code>.col-md-12</code> when the sidebar is collapsed, occupying the remaining space.</p>
+
+            <div id="btPrueba" class="btn-group" role="group" aria-label="Controls">
+                <button type="button" class="btn btn-default ">Prueba Llamada W. Service</button>
+            </div>
+        </div>
+    </div>
+
+
+  
+
+
+</body>
+</html>

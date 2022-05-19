@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<!--ref: https://cdn.rawgit.com/nunof07/bootstrap-collapsible-sidebar/v0.1.0/left.html-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Ejemplo Generación Factura con web service</title>
+    <meta charset="utf-8" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />    
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    
+
+
+<style type="text/css" media="all">
+    body{margin: 20px; 
+
+    }
+
+    #content {
+        background-color: lightyellow;
+        width:300px;
+        padding: 50px;
+        margin: 20px;
+    }
+	
+
+</style>
+
+
+<script type="text/javascript">
+
+ $(function () {
+     $('#btGenFactura').click(function (e) {
+
+        // ejemplo de llamada AJAX a realizar desde cualquier html --
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=UTF-8",
+            async: false,
+            url: "wsGlFactura.asmx/ImprimeFactura",
+            data: '{idFactura: '+ $('#txSelFactura').val()+   
+                ', Ejercicio: ' + $('#txSelEjer').val() +
+            '}',
+            dataType: "json",
+            success:
+                function (data) { },
+            error: {
+                function (request, status, error) { alert(JSON.parse(request.responseText).Message); }
+            },
+        });
+        //alert('Se ha generdo la factura ' + $('#txSelFactura').val());
+        window.open('facturas/Fact_' + $('#txSelFactura').val() + '_' + $('#txSelEjer').val() + '.pdf', '_blank');
+    });
+    
+});// $(function ()--
+
+
+</script>
+</head>
+
+<body>
+    
+    <h2> Prueba generación de factura con WS</h2>
+    <div  id="content">
+
+        <div  form-group >                
+            <input id="txSelFactura" class="form-control" placeholder="Factura" />
+            <input id="txSelEjer" class="form-control" placeholder="Ejercicio" />                
+        </div>
+
+
+        <div id="btGenFactura" class="btn-group" role="group" aria-label="Controls">
+            <button type="button" class="btn btn-default ">Generar Factura</button>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>

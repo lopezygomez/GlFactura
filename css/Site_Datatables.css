@@ -1,0 +1,40 @@
+﻿
+/*  ----------- Estilos datatables --*/
+thead { /* Titulos  */
+    font-size: 12px;
+    background-color: ActiveBorder;
+}
+
+.dataTables_info { /* linea de información */
+    font-size: 15px;
+}
+/* para que no  aparezca el filtro en datatables*/
+.dataTables_filter {
+    /*display: none;
+        o bien
+    visibility: hidden;*/
+}
+
+.dataTables_paginate { /*Paginador */
+    font-size: 12px;
+    /*background-color:ActiveCaption;*/
+}
+
+.dataTables_wrapper { /*Cuerpo general */
+    font-size: 12px;
+    /*background-color:beige;*/
+}
+
+    .dataTables_wrapper td { /*Cuerpo general, lineas */
+        /*font-size:11px;*/
+    }
+
+.sorting { /*columnas con orden*/
+    background-color: gainsboro;
+}
+
+.dataTables_empty {
+    font-size: 30px;
+}
+/* FIN  Estilos datatables */
+
