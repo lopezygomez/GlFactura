@@ -927,13 +927,13 @@ public void totGldistri(StreamWriter w, JToken jsTk, double totalFamilia, dynami
 
 
 
-public static int crearLineaContable(int idFactura, int Ejercicio, int tipo, int orden, string FechaCierre, string Contenido)        {
+public static decimal crearLineaContable(int idFactura, int Ejercicio, int tipo, int orden, string FechaCierre, string Contenido)        {
     //25/3/22 anulado, usa param de web.config -- const string pathUrl = "http://intranet.halconviajes.com/Facturas_SAP/";
     string pathUrl  = WebConfigurationManager.AppSettings["UrlFacturasSAP"];
 
     
     Contenido = Contenido.Replace("'", " "); // Elimina el caracter "'" si existe --
-    int Resul = 0; // Retorna nº de , modificado o añadido --
+    decimal Resul = 0; // Retorna nº de , modificado o añadido --
     string Query = @" INSERT INTO GAGSAP (idEmpresa, idFactura, Ejercicio, Tipo,  FechaCierre, Contenido, UrlDocumento) OUTPUT INSERTED.IdGagSap VALUES ("+
             "1"+                                            // Empresa --
         ","+idFactura.ToString()+                       // Factura --
@@ -951,7 +951,9 @@ public static int crearLineaContable(int idFactura, int Ejercicio, int tipo, int
             //Command.Parameters.Add("@idDelegacion", SqlDbType.Int).Value = Reg.IdDelegacion;
             //Command.Parameters.Add("@idEmpresa", SqlDbType.Int).Value = Reg.IdEmpresa;
             Command.CommandText = Query;
-            Resul = (int)Command.ExecuteScalar(); // retorna nuevo nº insertado, usando OUTPUT INSERTED
+            
+            Resul = (decimal)Command.ExecuteScalar(); // retorna nuevo nº insertado, usando OUTPUT INSERTED
+
         }
     }
     return Resul;
@@ -1664,7 +1666,7 @@ public string generarConta(int idFactura, int Ejercicio, JObject jsonObj) {
         
         #if (CREARCONTABLE)
             //  crea Linea de cabecera en la BD      --
-            int IdGagSap = crearLineaContable( idFactura, Ejercicio, 1, 1, fechaCierre, linTex);
+            int IdGagSap = (int)crearLineaContable( idFactura, Ejercicio, 1, 1, fechaCierre, linTex);
             // Genera linea en fichero de texto con la misma informacion de GAGSAP , para referencia , NO  necesaria, anular en el futuro  --                               
             #if (CREAREXCELCSV)
                 iwsGlFactura.insertaExcelCsvFactura(linTex);
@@ -1712,7 +1714,7 @@ public string generarConta(int idFactura, int Ejercicio, JObject jsonObj) {
             linTex += iwsGlFactura.stringJson(jsDet,";");
             #if (CREARCONTABLE)
                 // crea Linea de detalle en la BD con ese texto   -
-                int IdGagSap = crearLineaContable( idFactura, Ejercicio, 1, 1, fechaCierre, linTex);
+                int IdGagSap = (int)crearLineaContable( idFactura, Ejercicio, 1, 1, fechaCierre, linTex);
                 // Genera linea en fichero de texto con la misma informacion de GAGSAP , para referencia , NO  necesaria, anular en el futuro  --                               
                 #if (CREAREXCELCSV)
                     iwsGlFactura.insertaExcelCsvFactura(linTex);
@@ -3001,7 +3003,7 @@ public int generarSAPFactura(ref datFactura stFactura)        {
     linCab +=string.Format(CultureInfo.InvariantCulture,"{0,5:##0.00}", listaIvas[1].porIVA * listaIvas[1].importeIVA / 100) + ';';    // CUOTA 2 col AZ
     
     // Crea la linea de cabecera, conserva y retorna  nº de linea de la cabecera que se ha insertado --
-    int IdGagSap = crearLineaContable( idFactura, Ejercicio, 1, 1, fechaCierre, linCab); // crea Linea de cabecera    --
+    int IdGagSap = (int)crearLineaContable( idFactura, Ejercicio, 1, 1, fechaCierre, linCab); // crea Linea de cabecera    --
     // Genera linea en fichero de texto con la misma informacion de GAGSAP , para referencia , NO  necesaria --
     #if (CREAREXCELCSV)
         insertaExcelCsvFactura(linCab);

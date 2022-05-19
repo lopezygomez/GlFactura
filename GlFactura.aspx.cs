@@ -22,7 +22,7 @@ protected void Page_Load(object sender, EventArgs e) {
     else    {
         // operaciones de inicialización ---
         lbIp.InnerHtml = "Ip:" + Request.ServerVariables["REMOTE_ADDR"];
-        infOculta.InnerHtml = "Rev.46 (25/3/2022) Versión 1.4  "+
+        infOculta.InnerHtml = "Rev.47 (19/5/2022) Versión 1.4  "+
             //", PhysicalApplicationPath:" + Request.PhysicalApplicationPath +
             // Recupera nombre del servidor  
             //", SrvIIS: " + WebConfigurationManager.AppSettings["SrvIIS"]+
