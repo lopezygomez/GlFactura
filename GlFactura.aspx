@@ -501,6 +501,7 @@
     <div class="modal-body">                                 
         <select id="selEjercicio" class="form-control" >
 
+            <option value="2023">Ejer. 2023</option>
             <option value="2022">Ejer. 2022</option>
             <option value="2021">Ejer. 2021</option>
             <option value="2020">Ejer. 2020</option>
