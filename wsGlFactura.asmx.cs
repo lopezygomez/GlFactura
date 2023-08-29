@@ -3,8 +3,6 @@
 */
 
 
-
-
 //  SI Marca factura con fecha contabilización y la sube al FTP --
 #define MARCARFACTURA
 //#undef MARCARFACTURA
@@ -91,9 +89,9 @@ namespace GlFactura {
         #endif
                 
         #if (ORCL_DESARROLLO)
-            static string ConexORCL = WebConfigurationManager.ConnectionStrings["CONEX_CONTABLE_DES"].ConnectionString;
+            static string CONEXCONTABLE = WebConfigurationManager.ConnectionStrings["CONEX_CONTABLE_DES"].ConnectionString;
         #else
-            static string ConexORCL = WebConfigurationManager.ConnectionStrings["CONEX_CONTABLE"].ConnectionString;
+            static string CONEXCONTABLE = WebConfigurationManager.ConnectionStrings["CONEX_CONTABLE"].ConnectionString;
         #endif
 
         static string ConexGlDistri = WebConfigurationManager.ConnectionStrings["GLDISTRI"].ConnectionString;
@@ -934,7 +932,7 @@ public static decimal crearLineaContable(int idFactura, int Ejercicio, int tipo,
     
     Contenido = Contenido.Replace("'", " "); // Elimina el caracter "'" si existe --
     decimal Resul = 0; // Retorna nº de , modificado o añadido --
-    string Query = @" INSERT INTO GAGSAP (idEmpresa, idFactura, Ejercicio, Tipo,  FechaCierre, Contenido, UrlDocumento) OUTPUT INSERTED.IdGagSap VALUES ("+
+    string Query = @" INSERT INTO GAGSAP (IDEMPRESA, IDFACTURA, EJERCICIO, TIPO,  FECHACIERRE, CONTENIDO, URLDOCUMENTO) OUTPUT INSERTED.IDGAGSAP VALUES ("+
             "1"+                                            // Empresa --
         ","+idFactura.ToString()+                       // Factura --
         "," + Ejercicio.ToString() +                    // Ejercicio 
@@ -944,7 +942,7 @@ public static decimal crearLineaContable(int idFactura, int Ejercicio, int tipo,
         ",'" + pathUrl +"Fact_"+ idFactura.ToString() +"_"+ Ejercicio.ToString() + ".pdf'" +    // UrlDocumento -
         ");";                                                                                      
 
-    using (SqlConnection Conexion = new SqlConnection(ConexORCL))         {
+    using (SqlConnection Conexion = new SqlConnection(CONEXCONTABLE))         {
         Conexion.Open();
         using (SqlCommand Command = new SqlCommand(Query, Conexion))                {
             //Command.Parameters.Clear();
@@ -1792,7 +1790,7 @@ public string generarConta(int idFactura, int Ejercicio, JObject jsonObj) {
         var blobByte = genBinFacturaPdf();
         
         //using (OracleConnection conex1 = new OracleConnection(ConexORCL)) {
-        using (SqlConnection conex1 = new SqlConnection(ConexORCL)) {
+        using (SqlConnection conex1 = new SqlConnection(CONEXCONTABLE)) {
             conex1.Open();                 
             string query = @"UPDATE GAGSAP SET Documento = :blopfile WHERE idGagSAP = :idGag";      
             using (SqlCommand cmd = new SqlCommand(query, conex1))       {
@@ -2688,7 +2686,7 @@ public void insertarImagenPdf_ANT(int idgagSap, ref datFactura stFactura)       
     var blobByte = creaBytesFacturaPdf(ref stFactura);
         
     //using (OracleConnection conex1 = new OracleConnection(ConexORCL)) {
-    using (SqlConnection   conex1 = new SqlConnection(ConexORCL)) {
+    using (SqlConnection   conex1 = new SqlConnection(CONEXCONTABLE)) {
         conex1.Open();                 
         string query = @"UPDATE GAGSAP SET Documento = :blopfile WHERE idGagSAP = :idGag";      
         using (SqlCommand   cmd = new SqlCommand(query, conex1))       {
